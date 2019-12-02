@@ -4,6 +4,11 @@
   <meta charset="UTF-8">
 </head>
 <body>
+<form>
+	<input type="number" id="row">
+	<input type="number" id="column">
+	<button onclick="createTable()">создать таблицу</button>
+</form>
 <script type="text/javascript"> 
 </script>
 <script>
