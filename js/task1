@@ -1,0 +1,140 @@
+<!DOCTYPE html> 
+<html lang="ru"> 
+
+<head> 
+<meta charset="UTF-8" /> 
+<meta name="viewport" content="width=>, initial-scale=1.0" /> 
+<meta http-equiv="X-UA-Compatible" content="ie=edge" /> 
+<title>javascript</title> 
+<link rel="stylesheet" type="text/css"> 
+<style>
+	img{
+		width: 100px;
+		height:80px;
+	}
+</style>
+</head> 
+
+<body> 
+<script type="text/javascript"> 
+</script>
+1.
+
+<br>
+<script type="text/javascript"> 
+document.write('<h>homework</h>');
+var str = document.getElementsByTagName("h");
+document.write('<br>');
+document.write(str[0].innerHTML.split(" ").length);
+document.write('<br>');
+document.write(str[0].innerHTML.length); 
+</script> 
+<br>
+<script>  
+document.write(window.location);
+document.write('<br>');
+document.write(window.location.protocol);
+document.write('<br>');
+var path = window.location.pathname; 
+var name = path.split("/").pop(); 
+document.write(name); 
+document.write('<br>');
+var html = path.split(".").pop(); 
+document.write(html); 
+</script>
+<br> 
+2.
+
+<br>
+<script>
+document.write('<p id="suida">вы перешли по якорю</p>');
+document.write('<a href="#suida">Нажмите, чтобы перейти по якорю </a>');
+document.write('<br>');
+document.write('<a href="https://ru.wikipedia.org/wiki/%D0%97%D0%B0%D0%B3%D0%BB%D0%B0%D0%B2%D0%BD%D0%B0%D1%8F_%D1%81%D1%82%D1%80%D0%B0%D0%BD%D0%B8%D1%86%D0%B0">Ссылка на википедию </a>');
+document.write('<br>');
+document.write('<img src="sr1.jpg">');
+document.write('<img src="sr11.jpg">');
+img = document.getElementsByTagName('img');
+/*img[0].width = 10px;*/
+document.write('<br>');
+document.write(document.querySelectorAll("p").length + '<br>');
+document.write(document.querySelectorAll('img').length + '<br>');
+document.write(document.querySelectorAll('a').length + '<br>');
+document.write(document.querySelectorAll("p")[0].innerHTML + '<br>');
+document.write(document.getElementsByTagName('img')[0].width + '<br>');
+let maxWidth = 0;
+let sumHeights = 0;
+for (var i = 0; i < document.getElementsByTagName('img').length; i++) {
+	if (document.getElementsByTagName('img')[i].width > maxWidth)
+		maxWidth = document.getElementsByTagName('img')[i].width;
+		sumHeights += document.getElementsByTagName('img')[i].height;
+}
+document.write(maxWidth);
+document.write('<br>');
+document.write(sumHeights);
+</script>
+<br>
+3. 
+
+<script>
+for (var i = 0; i < 10; i++) {
+	document.write("<form name='" + (i+1) + "'></form>");
+	}
+for (var i = 0; i < 10; i++) {
+	if (i%2==0){
+	document.write(document.getElementsByTagName('form')[i].name);
+		}
+	}
+
+for (var i = 0; i < 10; i++) {
+form=document.getElementsByTagName('form')[i];	
+input1=document.createElement('input');
+input1.setAttribute('type', 'text');
+input1.setAttribute('placeholder', 'что-то');
+form.appendChild(input1);
+}
+
+
+for (var i = 0; i < 10; i++) {
+form=document.getElementsByTagName('form')[i];
+btn1=document.createElement('input');
+btn1.setAttribute('type', 'button');
+btn1.setAttribute('value', 'показать имя формы');
+btn1.setAttribute('OnClick', 'alert("показать имя формы")');
+btn1.setAttribute('img', 'name.png');
+form.appendChild(btn1);
+}
+
+for (var i = 0; i < 10; i++) {
+form=document.getElementsByTagName('form')[i];
+btn2=document.createElement('input');
+btn2.setAttribute('type', 'button');
+btn2.setAttribute('value', 'принадлежность');
+btn2.setAttribute('OnClick', 'alert(form.name)');
+form.appendChild(btn2);
+}
+
+for (var i = 0; i < 10; i++) {
+form=document.getElementsByTagName('form')[i];
+btn3=document.createElement('input');
+btn3.setAttribute('type', 'reset');
+btn3.setAttribute('value', 'сбросить');
+btn3.setAttribute('img', 'reset.png');
+form.appendChild(btn3);
+}
+
+for (var i = 0; i < 10; i++) {
+form=document.getElementsByTagName('form')[i];
+btn4=document.createElement('input');
+btn4.setAttribute('type', 'button');
+btn4.setAttribute('value', 'показать количество полей');
+btn4.setAttribute('OnClick', 'alert(form.elements.length)');
+img4=document.createElement('img');
+img4.setAttribute('src', 'length.png');
+btn4.appendChild(img4);
+form.appendChild(btn4);
+}
+
+</script>
+</body> 
+</html>
