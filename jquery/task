@@ -1,1 +1,95 @@
+<!DOCTYPE html> 
+<html lang="ru"> 
 
+<head> 
+<meta charset="UTF-8" /> 
+<meta name="viewport" content="width=>, initial-scale=1.0" /> 
+<meta http-equiv="X-UA-Compatible" content="ie=edge" /> 
+<title>jquery</title> 
+<link rel="stylesheet" type="text/css"> 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+</head> 
+<body>
+<main>
+<a class='a1' href="http://www.youtube.com/watch?v=mwS0oCoRWoU&list=PL3LQJkGQtzc5MFh51ACgwl8HXL3Hrqh5-&index=4">Youtube</a>
+<a class='a2' href="http://de.ifmo.ru/">Vk</a>
+<p class='p1'>Первый параграф</p>
+<p class='p2'>Второй параграф</p>
+<form action="">
+	<input type="text" value="введите имя">
+	<input type="text" value="введите фамилию">
+</form>
+</main>
+<script>
+	//1
+	$(document).ready(function(){
+		$('.a1').css('color','red');
+		$('.a2').css('fontSize','30px');
+		$('.p2').css('backgroundColor', 'red');
+	});
+	//2
+	$(document).ready(function(){
+		$('form').children().attr('disabled', true);
+	});
+	//3
+	$(document).ready(function(){
+		$('a').prepend('↗');
+		$('a').attr('target', '_blank');
+		$("[href^='http://']").each(function() {
+		$(this).attr("href", $(this).attr("href").replace("http://", "https://"));
+	});
+});
+	//$('a').attr("href", $('a').attr("href").replace("http://", "https://"));
+
+	//4
+	$('<button>').appendTo('main');
+	$('button').offset({top:15 , left:600});
+	$('button').click(function(){
+		$("[href]").each(function() {
+			text = $(this).text().replace('↗','');
+			$(this).html(text);
+		});
+		$('a').removeAttr("target");
+	});
+	//5
+	$(document).ready(function(){
+		$('<table>').appendTo('main');
+		$('<tr><td>Текст</td><td>Анимация</td></tr>').appendTo('table');
+		for (var i = 0; i < 5; i++) {
+			$('<tr><td>Какой-то текст</td><td></td></tr>').appendTo('table');
+			};
+			$('table').css('borderCollapse' , 'collapse');
+			$('td').css('border','1px solid black');
+			$('<button class="btn1">').appendTo('td:eq(3)');
+			$('<button class="btn2">').appendTo('td:eq(5)');
+			$('<button class="btn3">').appendTo('td:eq(7)');
+			$('<button class="btn4">').appendTo('td:eq(9)');
+			$('<button class="btn5">').appendTo('td:eq(11)');
+			$('.btn1').click(function(){
+				$('td:eq(2)').fadeOut('slow');
+			});
+			$('.btn2').click(function(){
+				$('td:eq(4)').slideUp('slow');
+			});
+			$('.btn3').click(function(){
+				$('td:eq(6)').slideToggle('slow');
+			})
+			$('.btn4').click(function(){
+				$('td:eq(8)').fadeTo('slow', 0.5);
+			});
+			$('.btn5').click(function(){
+				$('td:eq(10)').hide('slow');
+			});
+
+	});
+	//6
+	$(document).ready(function(){
+	$('<button class="new"> Обновить страницу </button>').appendTo('main');
+	$('.new').click(function(){
+	$('.p2').load( 'https://inxaoc.github.io/example/ajax-1.html');
+	});
+});
+
+</script>
+</body>
+</html>
