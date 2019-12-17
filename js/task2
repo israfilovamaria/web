@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=>, initial-scale=1.0" /> 
 <meta http-equiv="X-UA-Compatible" content="ie=edge" /> 
 <title>javascript</title> 
-<link rel="stylesheet" type="text/css"> 
+<link rel="stylesheet" type="text/css">
 </head>
 <body>
 	<form onsubmit="return false">
@@ -29,25 +29,25 @@
 		document.getElementsByTagName('table')[0].children[k].children[l].children[0].remove();
 	};
 	function changeWidth(){
-		var width=document.getElementsByTagName('form')[0].children[0].value;
-		var border=document.getElementsByTagName('form')[0].children[1].value;
+		var width=document.getElementsByTagName('form')[1].children[0].value;
+		var border=document.getElementsByTagName('form')[1].children[1].value;
 		var table=document.getElementsByTagName('table')[0];
 		table.style.width=width+"px";
 		table.style.border=border;
 	};
 	function addDiscr(){
-		var discr=document.getElementsByTagName('input')[1].value;
+		var discr=document.getElementsByTagName('input')[3].value;
 		var table=document.getElementsByTagName('table')[0];
 		var h=document.createElement('h1');
 		h.innerHTML=discr;
 		table.insertBefore(h, table.firstChild);
 	};
-	function deleteStr(a){
-		var nStr=document.getElementsByTagName('input')[2].value;
-		if (nStr>a) {
+	function deleteStr(){
+		var nStr=document.getElementsByTagName('input')[4].value;
+		if (nStr>document.getElementById('str').value) {
 			alert('Такой строки не существует');
 		} else{
-			document.getElementsByTagName('table')[0].children[nStr+1].remove();
+			document.getElementsByTagName('table')[0].children[nStr-1].remove();
 		};
 		
 
@@ -70,7 +70,7 @@
 			td.style.color=randColor();
 			break;
 		case 3:
-			td.style.fontSize =Math.ceil(Math.random() * 11 + 14) + 'pt';remove
+			td.style.fontSize =Math.ceil(Math.random() * 11 + 14) + 'pt';
 			for (var i = 0; i < td.length; i++)
 				td.children[i].style.fontSize= Math.ceil(Math.random() * 11 + 14) + 'pt';
 			break;
@@ -126,9 +126,12 @@
 		option2.innerHTML='solid';
 		button=document.createElement('button');
 		button.setAttribute('onclick', 'changeWidth()');
+		button.setAttribute('id', 'btn1');
 		button.innerHTML='применить';
 		h=document.createElement('h3');
 		h.innerHTML='Изменение границ таблицы';
+		input.setAttribute('onChange', 'document.getElementById("btn1").innerHTML="применить "+document.getElementsByTagName("form")[1].children[0].value+"px"');
+		select.setAttribute('onChange', 'document.getElementById("btn1").innerHTML="применить "+document.getElementsByTagName("form")[1].children[0].value+"px и рамку "+document.getElementsByTagName("form")[1].children[1].value');
 		select.appendChild(option1);
 		select.appendChild(option2);
 		form.appendChild(input);
@@ -137,6 +140,7 @@
 		div.appendChild(form);
 		div.appendChild(button);
 		document.getElementsByTagName('body')[0].appendChild(div); 
+		div.style.display='inline-block';
 	//функция2
 		div=document.createElement('div');
 		form=document.createElement('form');
@@ -150,13 +154,14 @@
 		div.appendChild(h);
 		div.appendChild(form);
 		div.appendChild(button);
-		document.getElementsByTagName('body')[0].appendChild(div); 
+		document.getElementsByTagName('body')[0].appendChild(div);
+		div.style.display='inline-block';
 		//функция3
 		div=document.createElement('div');
 		form=document.createElement('form');
 		input=document.createElement('input');
 		button=document.createElement('button');
-		button.setAttribute('onclick', 'deleteStr(str)');
+		button.setAttribute('onclick', 'deleteStr()');
 		button.innerHTML='добавить';
 		h=document.createElement('h3');
 		h.innerHTML='Удалить строку';
@@ -165,6 +170,7 @@
 		div.appendChild(form);
 		div.appendChild(button);
 		document.getElementsByTagName('body')[0].appendChild(div); 
+		div.style.display='inline-block';
 		//функция4
 		div=document.createElement('div');
 		button=document.createElement('button');
@@ -174,7 +180,8 @@
 		h.innerHTML='Случайный выбор';
 		div.appendChild(h);
 		div.appendChild(button);
-		document.getElementsByTagName('body')[0].appendChild(div); 
+		document.getElementsByTagName('body')[0].appendChild(div);
+		div.style.display='inline-block'; 
 		//функция5
 		div=document.createElement('div');
 		button=document.createElement('button');
@@ -185,6 +192,8 @@
 		div.appendChild(h);
 		div.appendChild(button);
 		document.getElementsByTagName('body')[0].appendChild(div);
+		div.style.display='inline-block';
+
 	};
 		</script>
 		<script>
